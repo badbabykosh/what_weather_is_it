@@ -4,28 +4,37 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <script src="js/lib/jquery/jquery-2.1.4.js"></script>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/style.css"/>
   <script src="js/src/Weather.js"></script>
 </head>
 <body>
 <div id="stuff"></div>
+<div id="demo">ping</div>
 <script>
 
   $(document).ready(function(){
     document.getElementById("stuff").innerHTML='here comes the weather';
     var whatitis = new Weather();
-    var value_call = whatitis.grab;
-    document.getElementById("stuff").innerHTML = value_call;
-
+    var value_call = whatitis.grab();
+    console.log("in HTML: "+value_call);
   });
 
-
+</script>
+<script>
+  var x = document.getElementById("demo");
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+  function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+        "<br>Longitude: " + position.coords.longitude;
+  }
 </script>
 </body>
 </html>
