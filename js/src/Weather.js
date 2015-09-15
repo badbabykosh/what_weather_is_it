@@ -22,15 +22,18 @@ Weather.prototype.grab = function(){
 
 function returnFunc(jsonValue){
   var description = jsonValue.weather[0].description;
+  var iconcode = jsonValue.weather[0].icon.toLocaleString();
   var location = jsonValue.name;
   var temp = jsonValue.main.temp;
   var speed = jsonValue.wind.speed;
   var wind = knots(jsonValue.wind.deg);
 
+  //TODO - display icon based on temp
+  //TODO - switch background based on temp
+  //TODO - toggle between F and C on button
+  var icon = '<img src=http://openweathermap.org/img/w/'+iconcode+'.png>';
 
-
-  document.getElementById("stuff").innerHTML =
-      temp+'F' +'<br>'+ location +' '+ description +' '+ speed +'knots'+' '+ wind;
+  document.getElementById("stuff").innerHTML = icon+' '+temp+'F' +'<br>'+ location +' '+ description +' '+ speed +'knots'+' '+ wind;
 }
 function knots(value){
     console.log('knots '+value);
