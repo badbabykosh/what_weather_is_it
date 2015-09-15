@@ -1,10 +1,12 @@
-function Weather(){
-  myArray = [];
+function Weather(value){
+  mylat = value.latitude;
+  mylon = value.longitude;
+  console.log('inside Weather class '+ mylat + ", " +mylon);
 }
 
 Weather.prototype.grab = function(){
   (function() {
-    var url = "http://api.openweathermap.org/data/2.5/weather?lat=34.0194&lon=-118.4912&units=imperial";
+    var url = "http://api.openweathermap.org/data/2.5/weather?lat="+mylat+"&lon="+mylon+"&units=imperial";
     //var url = "http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139";
     $.getJSON(url)
         .done(function (json) {

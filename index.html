@@ -10,16 +10,16 @@
   <script src="js/src/Weather.js"></script>
 </head>
 <body>
-<div id="stuff"></div>
-<div id="demo">ping</div>
+  <div id="stuff"></div>
+  <div id="demo"></div>
 <script>
 
   $(document).ready(function(){
+    getLocation();
     document.getElementById("stuff").innerHTML='here comes the weather';
-    var whatitis = new Weather();
-    var value_call = whatitis.grab();
-    console.log("in HTML: "+value_call);
+
   });
+
 
 </script>
 <script>
@@ -32,8 +32,8 @@
     }
   }
   function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude;
+    var whatitis = new Weather(position.coords);
+    whatitis.grab();
   }
 </script>
 </body>
