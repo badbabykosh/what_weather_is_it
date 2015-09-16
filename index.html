@@ -17,18 +17,21 @@
   <script src="js/src/Weather.js"></script>
 </head>
 <body>
-  <div id="stuff"></div>
-  <div id="demo"></div>
+
+  <div class="container-fluid">
+    <div class="row">top</div>
+
+    <div class="row"><div class="col-xs-4 pull-left">left</div><div class="col xs-4 pull-left">mid</div><div class="col-xs-4 pull-left">right</div></div>
+
+    <div class="row">bottom</div>
+  </div>
+
 
 <script>
-
   $(document).ready(function(){
     getLocation();
-    document.getElementById("stuff").innerHTML='<i class="fa fa-cog fa-spin"></i>'+' here comes the weather';
-
+    document.getElementById("icon").innerHTML='<div class="col-xs-1"><i class="fa fa-cog fa-spin"></i></div>';
   });
-
-
 </script>
 <script>
   var x = document.getElementById("demo");

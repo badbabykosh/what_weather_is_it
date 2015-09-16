@@ -30,41 +30,52 @@ function returnFunc(jsonValue){
 
   //TODO - switch background based on temp
   temp_ranges(temp);
-
+  cel = converter(temp);
   //TODO - toggle between F and C on button
   var icon = '<img src=http://openweathermap.org/img/w/'+iconcode+'.png>';
-
-  document.getElementById("stuff").innerHTML = icon+' '+temp+'F' +'<br>'+ location +' '+ description +' '+ speed +'knots'+' '+ wind;
+  var temp_on_display = temp;
+  //document.getElementById("stuff").innerHTML = icon+' '+temp+'F' +'<br>'+ location +' '+ description +' '+ speed +'knots'+' '+ wind;
+  document.getElementById("icon").innerHTML = icon;
+  document.getElementById("temp").innerHTML = temp_on_display;
+  document.getElementById("location").innerHTML = location;
+  document.getElementById("description").innerHTML = description;
+  document.getElementById("speed").innerHTML = speed;
+  document.getElementById("wind").innerHTML = wind;
+  //set to animation to blank
 }
 
 function temp_ranges(temp){
   if(temp>103.9){
     //return 'ohgawdhot';
-    return document.body.style.backgroundImage = "url('images/ohgawdhot.jpeg')";
+    return document.body.style.backgroundImage = "url('images/ohgawdhot.jpg')";
   }else if(temp>86 && temp<=103.8){
     //return 'hot';
-    return document.body.style.backgroundImage = "url('images/hot.jpeg')";
+    return document.body.style.backgroundImage = "url('images/hot.jpg')";
   }else if (temp>80.6 && temp<=85.9){
-    return document.body.style.backgroundImage = "url('images/verywarm.jpeg')";
+    return document.body.style.backgroundImage = "url('images/verywarm.jpg')";
   }else if(temp>73.4 && temp<=80.6){
-    return document.body.style.backgroundImage = "url('images/warm.jpeg')";
+    return document.body.style.backgroundImage = "url('images/warm.jpg')";
   }else if(temp>64.4 && temp<=73.4){
-    return document.body.style.backgroundImage = "url('images/moderate.jpeg')";
+    return document.body.style.backgroundImage = "url('images/moderate.jpg')";
   }else if(temp>57.2 && temp<=64.4){
-    return document.body.style.backgroundImage = "url('images/mild.jpeg')";
+    return document.body.style.backgroundImage = "url('images/mild.jpg')";
   }else if(temp>50 && temp<=57.2){
-    return document.body.style.backgroundImage = "url('images/cool.jpeg')";
+    return document.body.style.backgroundImage = "url('images/cool.jpg')";
   }else if(temp>42.8 && temp<=50){
-    return document.body.style.backgroundImage = "url('images/cold.jpeg')";
+    return document.body.style.backgroundImage = "url('images/cold.jpg')";
   }else if(temp>32 && temp<=42.8){
-    return document.body.style.backgroundImage = "url('images/verycold.jpeg')";
+    return document.body.style.backgroundImage = "url('images/verycold.jpg')";
   }else if(temp<=32){
-    return document.body.style.backgroundImage = "url('images/freezing.jpeg')";
+    return document.body.style.backgroundImage = "url('images/freezing.jpg')";
   }
 }
 
-function converter(fahrval){
-
+function converter(temp){
+  fahval = temp;
+  //(°F  -  32)  x  5/9 = °C
+  celsius = (fahval - 32) * (5/9);
+  celsius = celsius.toFixed(2);
+  return celsius
 }
 
 function knots(value){
