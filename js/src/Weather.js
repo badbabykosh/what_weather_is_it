@@ -28,13 +28,45 @@ function returnFunc(jsonValue){
   var speed = jsonValue.wind.speed;
   var wind = knots(jsonValue.wind.deg);
 
-  //TODO - display icon based on temp
   //TODO - switch background based on temp
+  temp_ranges(temp);
+
   //TODO - toggle between F and C on button
   var icon = '<img src=http://openweathermap.org/img/w/'+iconcode+'.png>';
 
   document.getElementById("stuff").innerHTML = icon+' '+temp+'F' +'<br>'+ location +' '+ description +' '+ speed +'knots'+' '+ wind;
 }
+
+function temp_ranges(temp){
+  if(temp>103.9){
+    //return 'ohgawdhot';
+    return document.body.style.backgroundImage = "url('images/ohgawdhot.jpeg')";
+  }else if(temp>86 && temp<=103.8){
+    //return 'hot';
+    return document.body.style.backgroundImage = "url('images/hot.jpeg')";
+  }else if (temp>80.6 && temp<=85.9){
+    return document.body.style.backgroundImage = "url('images/verywarm.jpeg')";
+  }else if(temp>73.4 && temp<=80.6){
+    return document.body.style.backgroundImage = "url('images/warm.jpeg')";
+  }else if(temp>64.4 && temp<=73.4){
+    return document.body.style.backgroundImage = "url('images/moderate.jpeg')";
+  }else if(temp>57.2 && temp<=64.4){
+    return document.body.style.backgroundImage = "url('images/mild.jpeg')";
+  }else if(temp>50 && temp<=57.2){
+    return document.body.style.backgroundImage = "url('images/cool.jpeg')";
+  }else if(temp>42.8 && temp<=50){
+    return document.body.style.backgroundImage = "url('images/cold.jpeg')";
+  }else if(temp>32 && temp<=42.8){
+    return document.body.style.backgroundImage = "url('images/verycold.jpeg')";
+  }else if(temp<=32){
+    return document.body.style.backgroundImage = "url('images/freezing.jpeg')";
+  }
+}
+
+function converter(fahrval){
+
+}
+
 function knots(value){
     console.log('knots '+value);
     //var newval = ''
