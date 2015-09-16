@@ -37,8 +37,8 @@ function returnFunc(jsonValue){
   //document.getElementById("stuff").innerHTML = icon+' '+temp+'F' +'<br>'+ location +' '+ description +' '+ speed +'knots'+' '+ wind;
   document.getElementById("icon").innerHTML = icon;
   document.getElementById("temp").innerHTML = temp_on_display;
-  document.getElementById("location").innerHTML = location;
-  document.getElementById("description").innerHTML = description;
+  document.getElementById("location").innerHTML = location.toUpperCase();
+  document.getElementById("description").innerHTML = description.toUpperCase();
   document.getElementById("speed").innerHTML = speed;
   document.getElementById("wind").innerHTML = wind;
   //set to animation to blank
