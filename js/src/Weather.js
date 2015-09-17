@@ -30,7 +30,7 @@ function returnFunc(jsonValue){
 
   //TODO - switch background based on temp
   temp_ranges(temp);
-  cel = converter(temp);
+  cel = convert(temp);
   //TODO - toggle between F and C on button
   var icon = '<img src=http://openweathermap.org/img/w/'+iconcode+'.png>';
   var temp_on_display = temp;
@@ -70,12 +70,19 @@ function temp_ranges(temp){
   }
 }
 
-function converter(temp){
-  fahval = temp;
-  //(°F  -  32)  x  5/9 = °C
-  celsius = (fahval - 32) * (5/9);
-  celsius = celsius.toFixed(2);
-  return celsius
+function convert(temp,symbol){
+  if(symbol == 'f'){
+    fahval = temp;
+    //(°F  -  32)  x  5/9 = °C
+    celsius = (fahval - 32) * (5/9);
+    celsius = celsius.toFixed(2);
+    console.log(celsius);
+    return celsius
+  }else if(symbol == 'c'){
+    //convert c to f
+    return fahr
+  }
+
 }
 
 function knots(value){

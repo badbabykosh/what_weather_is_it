@@ -25,7 +25,11 @@
       <div class="col-xs-4 pull-left"></div>
       <div class="col-xs-4 pull-left panel">
         <div class="row no-gutter">
-          <div class="col-xs-4"></div><div class="col-xs-2" id="icon"></div><div class="col-xs-2" id="temp"></div><div class="col-xs-4"></div>
+          <div class="col-xs-4"></div>
+          <div class="col-xs-2" id="icon"></div>
+          <div class="col-xs-2" id="temp"></div>
+          <div class="col-xs-2" id="symbol" onclick="ping()">f</div>
+          <div class="col-xs-4"></div>
         </div>
         <div class="row no-gutter">
           <div class="col-xs-4" id="location"></div>
@@ -46,6 +50,9 @@
     getLocation();
     document.getElementById("icon").innerHTML='<i class="fa fa-cog fa-spin"></i>';
     document.getElementById("temp").innerHTML='Load..';
+//    TODO on load asign temp result to converter(temp). set onclick event listener on that div
+    //fronttemp = document.getElementById("symbol").innerHTML;
+
   });
 </script>
 <script>
@@ -61,6 +68,14 @@
     var whatitis = new Weather(position.coords);
     whatitis.grab();
   }
+  function ping(){
+    var temp_val = document.getElementById("temp").innerHTML;
+    var symbol = document.getElementById("symbol").innerHTML;
+    console.log('cel is' +temp_val);
+    new_temp = convert(temp_val,symbol);
+    document.getElementById("temp").innerHTML = new_temp;
+  }
+
 </script>
 </body>
 </html>
