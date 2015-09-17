@@ -24,10 +24,10 @@
     <div class="row stuff">
       <div class="col-xs-4 pull-left"></div>
       <div class="col-xs-4 pull-left panel">
-        <div class="row spinner">
+        <div class="row no-gutter">
           <div class="col-xs-4"></div><div class="col-xs-2" id="icon"></div><div class="col-xs-2" id="temp"></div><div class="col-xs-4"></div>
         </div>
-        <div class="row">
+        <div class="row no-gutter">
           <div class="col-xs-4" id="location"></div>
           <div class="col-xs-4" id="description"></div>
           <div class="col-xs-2" id="speed"></div>
@@ -44,7 +44,8 @@
 <script>
   $(document).ready(function(){
     getLocation();
-    document.getElementById("spinner").innerHTML='<i class="fa fa-cog fa-spin"></i>';
+    document.getElementById("icon").innerHTML='<i class="fa fa-cog fa-spin"></i>';
+    document.getElementById("temp").innerHTML='Load..';
   });
 </script>
 <script>
