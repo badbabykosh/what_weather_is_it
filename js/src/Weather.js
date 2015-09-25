@@ -82,7 +82,7 @@ function convert(temp,symbol){
     return celsius
   }else if(symbol == 'c'){
     //°C  x  9/5 + 32 = °F
-    fahval = celsius * (9/5) + 32
+    fahval = celsius * (9/5) + 32;
     fahval = fahval.toFixed(2);
     document.getElementById("symbol").innerHTML = "f";
     return fahval
