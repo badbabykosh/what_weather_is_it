@@ -45,26 +45,26 @@ function returnFunc(jsonValue){
 function temp_ranges(temp){
   if(temp>103.9){
     //return 'ohgawdhot';
-    return document.body.style.backgroundImage = "url('images/ohgawdhot.jpg')";
+    return document.body.style.backgroundImage = "url('http://i.imgur.com/tcxnYuG.jpg')";
   }else if(temp>86 && temp<=103.8){
     //return 'hot';
-    return document.body.style.backgroundImage = "url('images/hot.jpg')";
+    return document.body.style.backgroundImage = "url('http://i.imgur.com/CRkJkEl.jpg')";
   }else if (temp>80.6 && temp<=85.9){
-    return document.body.style.backgroundImage = "url('images/verywarm.jpg')";
+    return document.body.style.backgroundImage = "url('http://i.imgur.com/Ez60K8u.jpg')";
   }else if(temp>73.4 && temp<=80.6){
-    return document.body.style.backgroundImage = "url('images/warm.jpg')";
+    return document.body.style.backgroundImage = "url('http://i.imgur.com/gNfsNOW.jpg')";
   }else if(temp>64.4 && temp<=73.4){
-    return document.body.style.backgroundImage = "url('images/moderate.jpg')";
+    return document.body.style.backgroundImage = "url('http://i.imgur.com/kXhScmH.jpg')";
   }else if(temp>57.2 && temp<=64.4){
-    return document.body.style.backgroundImage = "url('images/mild.jpg')";
+    return document.body.style.backgroundImage = "url('http://i.imgur.com/ko6x32N.jpg')";
   }else if(temp>50 && temp<=57.2){
-    return document.body.style.backgroundImage = "url('images/cool.jpg')";
+    return document.body.style.backgroundImage = "url('http://i.imgur.com/LGkorF8.jpg')";
   }else if(temp>42.8 && temp<=50){
-    return document.body.style.backgroundImage = "url('images/cold.jpg')";
+    return document.body.style.backgroundImage = "url('http://i.imgur.com/LGkorF8.jpg)";
   }else if(temp>32 && temp<=42.8){
-    return document.body.style.backgroundImage = "url('images/verycold.jpg')";
+    return document.body.style.backgroundImage = "url('http://i.imgur.com/9A7sDw0.jpg)";
   }else if(temp<=32){
-    return document.body.style.backgroundImage = "url('images/freezing.jpg')";
+    return document.body.style.backgroundImage = "url('http://i.imgur.com/Cp92UUs.jpg')";
   }
 }
 
