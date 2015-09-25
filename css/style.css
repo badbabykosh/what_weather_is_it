@@ -55,3 +55,6 @@ html, body {
 div > [class*='col-']{
   text-align: center;
 }
+#symbol{
+  cursor:pointer;
+}

@@ -50,7 +50,7 @@
     getLocation();
     document.getElementById("icon").innerHTML='<i class="fa fa-cog fa-spin"></i>';
     document.getElementById("temp").innerHTML='Load..';
-    // TODO on load asign temp result to converter(temp).
+    // TODO on load assign temp result to convert(temp).
     // set onclick event listener on that div
 
     //fronttemp = document.getElementById("symbol").innerHTML;
@@ -73,7 +73,8 @@
   function ping(){
     var temp_val = document.getElementById("temp").innerHTML;
     var symbol = document.getElementById("symbol").innerHTML;
-    console.log('cel is' +temp_val);
+    console.log('celsius is: ' +temp_val);
+    console.log('symbol is: ' +symbol);
     new_temp = convert(temp_val,symbol);
     document.getElementById("temp").innerHTML = new_temp;
   }

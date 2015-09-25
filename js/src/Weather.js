@@ -71,16 +71,21 @@ function temp_ranges(temp){
 }
 
 function convert(temp,symbol){
+  //todo return both value and symbol, remove dom code. violates SOLID
   if(symbol == 'f'){
     fahval = temp;
     //(°F  -  32)  x  5/9 = °C
     celsius = (fahval - 32) * (5/9);
     celsius = celsius.toFixed(2);
     console.log(celsius);
+    document.getElementById("symbol").innerHTML = "c";
     return celsius
   }else if(symbol == 'c'){
-    //convert c to f
-    return fahr
+    //°C  x  9/5 + 32 = °F
+    fahval = celsius * (9/5) + 32
+    fahval = fahval.toFixed(2);
+    document.getElementById("symbol").innerHTML = "f";
+    return fahval
   }
 
 }
