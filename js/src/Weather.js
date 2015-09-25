@@ -1,7 +1,6 @@
 function Weather(value){
   mylat = value.latitude;
   mylon = value.longitude;
-  console.log('inside Weather class '+ mylat + ", " +mylon);
 }
 
 Weather.prototype.grab = function(){
@@ -28,13 +27,12 @@ function returnFunc(jsonValue){
   var speed = jsonValue.wind.speed;
   var wind = knots(jsonValue.wind.deg);
 
-  //TODO - switch background based on temp
+  //switch background based on temp
   temp_ranges(temp);
   cel = convert(temp);
-  //TODO - toggle between F and C on button
+  //toggle between F and C on button
   var icon = '<img src=http://openweathermap.org/img/w/'+iconcode+'.png>';
   var temp_on_display = temp;
-  //document.getElementById("stuff").innerHTML = icon+' '+temp+'F' +'<br>'+ location +' '+ description +' '+ speed +'knots'+' '+ wind;
   document.getElementById("icon").innerHTML = icon;
   document.getElementById("temp").innerHTML = temp_on_display;
   document.getElementById("location").innerHTML = location.toUpperCase();
