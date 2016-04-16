@@ -1,19 +1,23 @@
 function Weather(value){
   mylat = value.latitude;
   mylon = value.longitude;
+  // apikey = ENV[WEATHER_API_KEY];
+  apikey = '4f05930fc9ea86266793c2cc38d3e093'; 
 }
 
 Weather.prototype.grab = function(){
   (function() {
-    var url = "http://api.openweathermap.org/data/2.5/weather?lat="+mylat+"&lon="+mylon+"&units=imperial";
-    //var url = "http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139";
+    //TODO: requires api key. need to set as env var may need nodejs on heroku for this now.
+    // apikey value here is evil.
+    var url = "http://api.openweathermap.org/data/2.5/weather?lat="+mylat+"&lon="+mylon+"&units=imperial"+"&APPID="+apikey;
+
     $.getJSON(url)
         .done(function (json) {
           returnFunc(json);
         })
         .fail(function(jqxhr,textStatus,error){
           var err = textStatus +','+error;
-          console.log('Shiz got broke: '+ err);
+          console.log('Stuff got broke: '+ err);
         });
 
   })();
