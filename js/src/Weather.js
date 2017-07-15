@@ -2,14 +2,11 @@ function Weather(value){
   mylat = value.latitude;
   mylon = value.longitude;
   // apikey = ENV[WEATHER_API_KEY];
-  // apikey = '4f05930fc9ea86266793c2cc38d3e093';
 }
 
 Weather.prototype.grab = function(){
   (function() {
-    //TODO: requires api key. need to set as env var may need nodejs on heroku for this now.
-    // apikey value here is evil.
-    //var url = "https://fcc-weather-api.glitch.me/api/current?lat="+mylat+"&lon="+mylon+"&?callback=?";
+
     var url = "https://fcc-weather-api.glitch.me/api/current?callback=?&lat="+mylat+"&lon="+mylon+"&units=imperial";
 
     $.getJSON(url)
@@ -36,7 +33,7 @@ function returnFunc(jsonValue){
   temp_ranges(temp);
   cel = convert(temp);
   //toggle between F and C on button
-  var icon = '<img src=http://openweathermap.org/img/w/'+iconcode+'.png>';
+  var icon = '<img src=https://openweathermap.org/img/w/'+iconcode+'.png>';
   var temp_on_display = temp;
   document.getElementById("icon").innerHTML = icon;
   document.getElementById("temp").innerHTML = temp_on_display;
@@ -50,26 +47,26 @@ function returnFunc(jsonValue){
 function temp_ranges(temp){
   if(temp>103.9){
     //return 'ohgawdhot';
-    return document.body.style.backgroundImage = "url('http://i.imgur.com/tcxnYuG.jpg')";
+    return document.body.style.backgroundImage = "url('https://i.imgur.com/tcxnYuG.jpg')";
   }else if(temp>86 && temp<=103.8){
     //return 'hot';
-    return document.body.style.backgroundImage = "url('http://i.imgur.com/CRkJkEl.jpg')";
+    return document.body.style.backgroundImage = "url('https://i.imgur.com/CRkJkEl.jpg')";
   }else if (temp>80.6 && temp<=85.9){
-    return document.body.style.backgroundImage = "url('http://i.imgur.com/Ez60K8u.jpg')";
+    return document.body.style.backgroundImage = "url('https://i.imgur.com/Ez60K8u.jpg')";
   }else if(temp>73.4 && temp<=80.6){
-    return document.body.style.backgroundImage = "url('http://i.imgur.com/gNfsNOW.jpg')";
+    return document.body.style.backgroundImage = "url('https://i.imgur.com/gNfsNOW.jpg')";
   }else if(temp>64.4 && temp<=73.4){
-    return document.body.style.backgroundImage = "url('http://i.imgur.com/kXhScmH.jpg')";
+    return document.body.style.backgroundImage = "url('https://i.imgur.com/kXhScmH.jpg')";
   }else if(temp>57.2 && temp<=64.4){
-    return document.body.style.backgroundImage = "url('http://i.imgur.com/ko6x32N.jpg')";
+    return document.body.style.backgroundImage = "url('https://i.imgur.com/ko6x32N.jpg')";
   }else if(temp>50 && temp<=57.2){
-    return document.body.style.backgroundImage = "url('http://i.imgur.com/LGkorF8.jpg')";
+    return document.body.style.backgroundImage = "url('https://i.imgur.com/LGkorF8.jpg')";
   }else if(temp>42.8 && temp<=50){
-    return document.body.style.backgroundImage = "url('http://i.imgur.com/LGkorF8.jpg)";
+    return document.body.style.backgroundImage = "url('https://i.imgur.com/LGkorF8.jpg)";
   }else if(temp>32 && temp<=42.8){
-    return document.body.style.backgroundImage = "url('http://i.imgur.com/9A7sDw0.jpg)";
+    return document.body.style.backgroundImage = "url('https://i.imgur.com/9A7sDw0.jpg)";
   }else if(temp<=32){
-    return document.body.style.backgroundImage = "url('http://i.imgur.com/Cp92UUs.jpg')";
+    return document.body.style.backgroundImage = "url('https://i.imgur.com/Cp92UUs.jpg')";
   }
 }
 
