@@ -9,7 +9,7 @@ Weather.prototype.grab = function(){
   (function() {
     //TODO: requires api key. need to set as env var may need nodejs on heroku for this now.
     // apikey value here is evil.
-    var url = " https://fcc-weather-api.glitch.me/api/current?lat="+mylat+"&lon="+mylon+"&units=imperial";
+    var url = " https://fcc-weather-api.glitch.me/api/current?lat="+mylat+"&lon="+mylon+"&units=imperial?callback=?";
 
     $.getJSON(url)
         .done(function (json) {
