@@ -9,7 +9,7 @@ Weather.prototype.grab = function(){
   (function() {
     //TODO: requires api key. need to set as env var may need nodejs on heroku for this now.
     // apikey value here is evil.
-    var url = "http://api.openweathermap.org/data/2.5/weather?lat="+mylat+"&lon="+mylon+"&units=imperial"+"&APPID="+apikey;
+    var url = "https://api.openweathermap.org/data/2.5/weather?lat="+mylat+"&lon="+mylon+"&units=imperial"+"&APPID="+apikey;
 
     $.getJSON(url)
         .done(function (json) {
