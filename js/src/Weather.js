@@ -2,14 +2,14 @@ function Weather(value){
   mylat = value.latitude;
   mylon = value.longitude;
   // apikey = ENV[WEATHER_API_KEY];
-  apikey = '4f05930fc9ea86266793c2cc38d3e093'; 
+  // apikey = '4f05930fc9ea86266793c2cc38d3e093';
 }
 
 Weather.prototype.grab = function(){
   (function() {
     //TODO: requires api key. need to set as env var may need nodejs on heroku for this now.
     // apikey value here is evil.
-    var url = "http://api.openweathermap.org/data/2.5/weather?lat="+mylat+"&lon="+mylon+"&units=imperial"+"&APPID="+apikey;
+    var url = " https://fcc-weather-api.glitch.me/api/current?lat="+mylat+"&lon="+mylon+"&units=imperial";
 
     $.getJSON(url)
         .done(function (json) {
