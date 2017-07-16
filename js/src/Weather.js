@@ -30,7 +30,7 @@ function returnFunc(jsonValue){
   var wind = knots(jsonValue.wind.deg);
 
   //switch background based on temp
-  temp_ranges(temp);
+  temp_ranges_c(temp);
   // var temp = convert(temp);
   //toggle between F and C on button
   var icon = '<img src='+iconCode+'.png>';
@@ -45,7 +45,9 @@ function returnFunc(jsonValue){
   //set to animation to blank
 }
 
-function temp_ranges(temp){
+
+// TODO: create an auto switch to detect f or c ranges
+function temp_ranges_f(temp){
   if(temp>103.9){
     //return 'ohgawdhot';
     return document.body.style.backgroundImage = "url('https://i.imgur.com/tcxnYuG.jpg')";
@@ -69,6 +71,32 @@ function temp_ranges(temp){
   }else if(temp<=32){
     return document.body.style.backgroundImage = "url('https://i.imgur.com/Cp92UUs.jpg')";
   }
+}
+
+function temp_ranges_c(temp){
+    if(temp>40){
+        //return 'ohgawdhot';
+        return document.body.style.backgroundImage = "url('https://i.imgur.com/tcxnYuG.jpg')";
+    }else if(temp>30 && temp<=40){
+        //return 'hot';
+        return document.body.style.backgroundImage = "url('https://i.imgur.com/CRkJkEl.jpg')";
+    }else if (temp>27 && temp<=30){
+        return document.body.style.backgroundImage = "url('https://i.imgur.com/Ez60K8u.jpg')";
+    }else if(temp>23 && temp<=27){
+        return document.body.style.backgroundImage = "url('https://i.imgur.com/gNfsNOW.jpg')";
+    }else if(temp>18 && temp<=23){
+        return document.body.style.backgroundImage = "url('https://i.imgur.com/kXhScmH.jpg')";
+    }else if(temp>14 && temp<=18){
+        return document.body.style.backgroundImage = "url('https://i.imgur.com/ko6x32N.jpg')";
+    }else if(temp>10 && temp<=14){
+        return document.body.style.backgroundImage = "url('https://i.imgur.com/LGkorF8.jpg')";
+    }else if(temp>6 && temp<=10){
+        return document.body.style.backgroundImage = "url('https://i.imgur.com/LGkorF8.jpg)";
+    }else if(temp>0 && temp<=6){
+        return document.body.style.backgroundImage = "url('https://i.imgur.com/9A7sDw0.jpg)";
+    }else if(temp<=0){
+        return document.body.style.backgroundImage = "url('https://i.imgur.com/Cp92UUs.jpg')";
+    }
 }
 
 function convert(temp,symbol){
