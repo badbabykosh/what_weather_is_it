@@ -28,7 +28,7 @@
           <div class="col-xs-4"></div>
           <div class="col-xs-2" id="icon"></div>
           <div class="col-xs-2" id="temp"></div>
-          <div class="col-xs-2" id="symbol" onclick="change()">f</div>
+          <div class="col-xs-2" id="symbol" onclick="change()">c</div>
           <div class="col-xs-4"></div>
         </div>
         <div class="row no-gutter">
@@ -74,8 +74,8 @@
   function change(){
     var temp_val = document.getElementById("temp").innerHTML;
     var symbol = document.getElementById("symbol").innerHTML;
-    console.log('celsius is: ' +temp_val);
-    console.log('symbol is: ' +symbol);
+//    console.log('temp is: ' +temp_val);
+//    console.log('symbol is: ' +symbol);
     new_temp = convert(temp_val,symbol);
     document.getElementById("temp").innerHTML = new_temp;
   }

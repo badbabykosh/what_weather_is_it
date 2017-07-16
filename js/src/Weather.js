@@ -23,7 +23,7 @@ Weather.prototype.grab = function(){
 
 function returnFunc(jsonValue){
   var description = jsonValue.weather[0].description;
-  var iconcode = jsonValue.weather[0].icon.toLocaleString();
+  var iconCode = jsonValue.weather[0].icon;
   var location = jsonValue.name;
   var temp = jsonValue.main.temp;
   var speed = jsonValue.wind.speed;
@@ -31,10 +31,11 @@ function returnFunc(jsonValue){
 
   //switch background based on temp
   temp_ranges(temp);
-  cel = convert(temp);
+  // var temp = convert(temp);
   //toggle between F and C on button
-  var icon = '<img src=https://openweathermap.org/img/w/'+iconcode+'.png>';
+  var icon = '<img src='+iconCode+'.png>';
   var temp_on_display = temp;
+// console.log("temp: "+temp_on_display);
   document.getElementById("icon").innerHTML = icon;
   document.getElementById("temp").innerHTML = temp_on_display;
   document.getElementById("location").innerHTML = location.toUpperCase();
@@ -71,27 +72,22 @@ function temp_ranges(temp){
 }
 
 function convert(temp,symbol){
-  //todo return both value and symbol, remove dom code. violates SOLID
+    var new_temp = '';
   if(symbol == 'f'){
     fahval = temp;
-    //(°F  -  32)  x  5/9 = °C
-    celsius = (fahval - 32) * (5/9);
-    celsius = celsius.toFixed(2);
-    console.log(celsius);
+    //c = (f - 32) / 1.8
+    new_temp = ((fahval - 32) / 1.8).toFixed(2);
     document.getElementById("symbol").innerHTML = "c";
-    return celsius
   }else if(symbol == 'c'){
-    //°C  x  9/5 + 32 = °F
-    fahval = celsius * (9/5) + 32;
-    fahval = fahval.toFixed(2);
+    celsius = temp;
+    new_temp = (celsius * 1.8 + 32).toFixed(2);
     document.getElementById("symbol").innerHTML = "f";
-    return fahval
   }
-
+  return new_temp;
 }
 
 function knots(value){
-    console.log('knots '+value);
+    // console.log('knots '+value);
     //var newval = ''
     if (value = 0 || 360) {
       return 'N';
