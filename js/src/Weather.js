@@ -1,7 +1,6 @@
 function Weather(value){
   mylat = value.latitude;
   mylon = value.longitude;
-  // apikey = ENV[WEATHER_API_KEY];
 }
 
 Weather.prototype.grab = function(){
@@ -33,15 +32,17 @@ function returnFunc(jsonValue){
   temp_ranges_c(temp);
   // var temp = convert(temp);
   //toggle between F and C on button
-  var icon = '<img src='+iconCode+'.png>';
+  var icon = '<img class="img-responsive" src='+iconCode+'.png>';
   var temp_on_display = temp;
 // console.log("temp: "+temp_on_display);
   document.getElementById("icon").innerHTML = icon;
   document.getElementById("temp").innerHTML = temp_on_display;
   document.getElementById("location").innerHTML = location.toUpperCase();
   document.getElementById("description").innerHTML = description.toUpperCase();
-  document.getElementById("speed").innerHTML = speed;
-  document.getElementById("wind").innerHTML = wind;
+  document.getElementById("speed").innerHTML = 'Wind: '+speed+'k';
+  document.getElementById("wind").innerHTML = 'Direction: '+wind;
+  document.getElementById("symbol").style.display='block';
+  document.getElementById("preloader").innerHTML='';
   //set to animation to blank
 }
 

@@ -24,19 +24,29 @@
     <div class="row stuff">
       <div class="col-xs-4 pull-left"></div>
       <div class="col-xs-4 pull-left panel">
+
         <div class="row no-gutter">
-          <div class="col-xs-4"></div>
-          <div class="col-xs-2" id="icon"></div>
-          <div class="col-xs-2" id="temp"></div>
-          <div class="col-xs-2" id="symbol" onclick="change()">c</div>
+          <div class="col-xs-12" id="location"></div>
+        </div>
+
+        <div class="row no-gutter">
+          <div class="col-xs-4" id="temp"></div>
+          <div class="col-xs-4" id="symbol" onclick="change()">c</div>
           <div class="col-xs-4"></div>
         </div>
+
         <div class="row no-gutter">
-          <div class="col-xs-4" id="location"></div>
-          <div class="col-xs-4" id="description"></div>
+          <div class="col-xs-3" id="description"></div>
+          <div class="col-xs-3" id="icon"></div>
+          <div class="col-xs-6" id="preloader"></div>
+        </div>
+
+        <div class="row no-gutter">
           <div class="col-xs-2" id="speed"></div>
           <div class="col-xs-2" id="wind"></div>
+          <div class="col-xs-8"></div>
         </div>
+
       </div>
       <div class="col-xs-4 pull-left"></div>
     </div>
@@ -48,8 +58,9 @@
 <script>
   $(document).ready(function(){
     getLocation();
-    document.getElementById("icon").innerHTML='<i class="fa fa-cog fa-spin"></i>';
-    document.getElementById("temp").innerHTML='Load..';
+    document.getElementById("icon").innerHTML='<i class="fa fa-cog fa-spin" style="font-size: 40px;"></i>';
+    document.getElementById("preloader").innerHTML='Loading...';
+    document.getElementById("symbol").style.display='none';
     // TODO on load assign temp result to convert(temp).
     // set onclick event listener on that div
 
